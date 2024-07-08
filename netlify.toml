@@ -1,0 +1,33 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "14"
+
+[[plugins]]
+  package = "@netlify/plugin-vue-cli"
+
+[context.production.environment]
+  VUE_APP_ENV = "production"
+
+[build.processing]
+  skip_processing = true
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# This is the important part for ignoring warnings
+[build]
+  ignore_warnings = true
